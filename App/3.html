@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a</title>
+</head>
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+<script>
+
+
+ /*   var token;
+    $.ajax({
+        url: "https://server.com/AuthService/api/account/login",
+        crossDomain: true,
+        xhrFields: {withCredentials: true},
+        type: 'post',
+        async: false,
+        data: {
+            username: "username",
+            password: "password"
+        }
+    }).done(function(response) {
+        token = response.securityToken;
+        success = true;
+    });
+*/
+
+    $.ajax({
+        type: "GET",
+        crossDomain: true,
+        xhrFields: {withCredentials: true},
+        async: false,
+        beforeSend: function(request) {
+            request.setRequestHeader("referer", "https://iframe.app.autoconvert.co.uk/iframe-form-carplus/");
+        },
+        url: "https://iframe.app.autoconvert.co.uk/postcodelookup/searchmany",
+        data: "postcode=NW61PL&source=",
+        processData: false,
+        success: function (n) {
+            console.log(n);
+        },
+        headers: {
+            "referer": "https://iframe.app.autoconvert.co.uk/iframe-form-carplus/"
+        },
+        error: function (n) {
+            console.log(n);
+        },
+        dataType: "jsonp",
+        timeout: 8e3
+      
+    });
+    
+   /* $.ajax({
+        cache: !0,
+
+        headers: {
+            "":
+        },
+
+    });
+*/
+
+    
+</script>
+</body>
+</html>

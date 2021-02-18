@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a</title>
+</head>
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+<script>
+
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function() {
+        if(this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+
+    xhr.open("GET", "https://iframe.app.autoconvert.co.uk/postcodelookup/searchmany?callback=jQuery111104696935689161654_1613621099388&postcode=NW61PL&source=");
+    xhr.setRequestHeader("referer", "https://iframe.app.autoconvert.co.uk/iframe-form-carplus/");
+
+    xhr.send();
+    
+   /* $.ajax({
+        cache: !0,
+        url: "https://iframe.app.autoconvert.co.uk/postcodelookup/searchmany",
+        data: "postcode=NW61PL&source=",
+        headers: {
+            "referer": "https://iframe.app.autoconvert.co.uk/iframe-form-carplus/"
+        },
+        success: function (n) {
+             console.log(n);
+        },
+        error: function (n) {
+            console.log(n);
+        },
+        dataType: "jsonp",
+        timeout: 8e3
+    });
+*/
+
+    
+</script>
+</body>
+</html>
