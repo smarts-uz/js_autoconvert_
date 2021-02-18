@@ -28,31 +28,21 @@
     });
 */
 
-    $.ajax({
-        type: "GET",
-        crossDomain: true,
-        xhrFields: {withCredentials: true},
-        async: false,
-        beforeSend: function(request) {
-            request.setRequestHeader("referer", "https://iframe.app.autoconvert.co.uk/iframe-form-carplus/");
-        },
-        url: "https://iframe.app.autoconvert.co.uk/postcodelookup/searchmany",
-        data: "postcode=NW61PL&source=",
-        processData: false,
-        success: function (n) {
-            console.log(n);
-        },
-        headers: {
-            "referer": "https://iframe.app.autoconvert.co.uk/iframe-form-carplus/"
-        },
-        error: function (n) {
-            console.log(n);
-        },
-        dataType: "jsonp",
-        timeout: 8e3
-      
-    });
-    
+
+
+ var settings = {
+     "url": "https://api.firstclasspostcodes.com/data/postcode?search=NW61PL",
+     "method": "GET",
+     "timeout": 0,
+     "headers": {
+         "X-Api-Key": "eqZvAN6QR79c15K4gPiAV50juEL5vvPX9ObtWpFY"
+     },
+ };
+
+ $.ajax(settings).done(function (response) {
+     console.log(response);
+ });
+
    /* $.ajax({
         cache: !0,
 

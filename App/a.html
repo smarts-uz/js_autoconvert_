@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<style type="text/css">
+    .car-svg .cls-1, .van-svg .cls-1 {
+        fill: none;
+        stroke: #ec6807;
+        stroke: var(--formAppSvgColour);
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+    }
+</style>
+
+<div class="col-12 col-lg-6 px-4 px-lg-3">
+    <div class="pform">
+
+        <form id="pform" class="top-aligned"
+              action="https://stagingcplus.wpengine.com/wp-content/themes/carplus-3.7/page_API_POST.php" method="POST">
+
+            <h2 class="text-center pt-5">Let's get started</h2>
+            <div id="indicator"><span style="width: 14.2857%;">14%</span></div>
+            <div id="step0" class="tab" style="display: block;">
+                <div class="form-group form-group--radio">
+                    <fieldset>
+                        <legend>How much would you like to borrow?</legend>
+
+
+                        <div class="calculator">
+                            <div class="o-calculator-container" data-component="calculator-panel">
+                                <div class="o-calculator-container-col--1">
+
+                                    <div class="mt-30-sm mt-0-md">
+
+                                        <div class="c-borrow-widget mb-15-sm" data-show-buttons="false">
+                                            <button class="c-borrow-widget__btn c-btn c-btn--primary c-btn--icon"
+                                                    aria-label="Decrease borrow amount"
+                                                    onclick="alterCalcAmount(false);">
+                                                <svg width="25" height="4" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M2 2h21" stroke="#fff" stroke-width="3" fill="none"
+                                                          fill-rule="evenodd" stroke-linecap="round"></path>
+                                                </svg>
+                                            </button>
+                                            <div class="c-borrow-widget__amount">
+                                                <div class="c-field__group">
+                                                    <span class="c-field__addon c-field__addon--left h2 mb-0 mt-2">&pound;</span>
+                                                    <input type="text" value="8500" id="borrowAmount"
+                                                           name="borrowAmount" inputmode="numeric" lang="en-150"
+                                                           pattern="[0-9]*" class="c-field__input price display-2 mb-0"
+                                                           min="2000" max="50000" step="100" data-js-amount-input
+                                                           value="{}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="range" class="c-slider" name="borrowAmount" data-js-borrow-slider
+                                               readonly="readonly">
+                                    </div>
+
+                                    <div class="mt-30-sm" style="display: none;">
+                                        <div class="c-payback-widget mb-10-sm">
+                                            <h6 class="font-weight-bold text-uppercase text-left text-primary mb-5">To
+                                                repay over:</h6>
+                                            <input type="text" placeholder="5 years" class="d-none">
+                                            <div class="c-payback-widget__label">
+                                                <span class="display-2" data-js-year>5</span> <span class="h2"
+                                                                                                    data-js-year-text>Years</span>
+                                            </div>
+                                        </div>
+                                        <input type="range" class="c-slider" min="1" max="5" step="1" value="5"
+                                               name="year" autocomplete="off" data-js-year-slider>
+                                    </div>
+
+                                    <div class="mt-30-sm mt-35-md mb-50-sm mb-20-md"
+                                         style="margin-top: 0; display: none;">
+                                        <div class="c-credit-profile-widget">
+                                            <div class="c-credit-profile-widget__label">
+                                                <p class="c-field__label c-field__label--sm c-field__label--no-margin">
+                                                    Assuming your credit profile is</p>
+                                            </div>
+                                            <div class="c-credit-profile-widget__dropdown">
+                                                <div class="c-field__wrapper">
+                                                    <select class="c-field__input--xs c-field__input--dropdown"
+                                                            name="creditProfile" data-js-credit-profile>
+                                                        <option value="excellent" selected="selected">Excellent</option>
+                                                        <option value="good">Good</option>
+                                                        <option value="fair">Fair</option>
+                                                        <option value="bad">Bad</option>
+                                                    </select>
+                                                    <span class="c-field__icon-dropdown c-field__icon-dropdown--xs"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="o-calculator-container-col--2" style="display: none;">
+                                    <div class="c-summary-breakdown">
+                                        <div class="c-summary-breakdown-row--2 mt-25-sm mt-0-md">
+                                            <table class="c-summary-breakdown__table">
+                                                <tr>
+                                                    <td class="c-summary-breakdown__table-label">Car finance rate</td>
+                                                    <td class="c-summary-breakdown__table-calc">
+                                                        <span data-js-best-available-rate>XX</span>% APR
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="c-summary-breakdown__table-label">Cost of credit</td>
+                                                    <td class="c-summary-breakdown__table-calc">
+                                                        &pound; <span data-js-total-cost-of-credit>XXX</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="c-summary-breakdown__table-label">
+                                                        Total repayment
+                                                    </td>
+                                                    <td class="c-summary-breakdown__table-calc">
+                                                        &pound; <span data-js-total-repayment>XX,XX.XX</span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="c-summary-breakdown-row--2" style="margin-top: 37px;">
+                                            <table class="c-summary-breakdown__table">
+                                                <tr>
+                                                    <td class="c-summary-breakdown__table-label--total">
+                                                        <span data-js-total-term>48</span><span> monthly</span> payments
+                                                        of
+                                                    </td>
+                                                    <td class="c-summary-breakdown__table-label--total">
+                                                        <div class="d-flex justify-content-center mt-2">
+                                                            <span class="c-summary-breakdown__table-calc-sign h2 mb-0 mt-2">&pound;</span>
+                                                            <span class="c-summary-breakdown__table-calc-pound price display-2 mb-0 text-primary"
+                                                                  data-js-pounds>245</span>
+                                                            <span class="h2 align-self-end mb-1">/mo</span>
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script src="https://carplus.co.uk/wp-content/themes/carplus-3.7/js/all-v3.js" defer></script>
+                        <link rel="stylesheet" type="text/css"
+                              href="https://carplus.co.uk/wp-content/themes/carplus-3.7/style-calculator-new.css">
+                        <style type="text/css">
+                            .c-btn--primary {
+                                display: none !important;
+                            }
+
+                            .c-slider[type=range] {
+                                border: 0 !important;
+                            }
+
+                            .c-borrow-widget {
+                                overflow: visible !important;
+                            }
+
+                            #borrowAmount-error {
+                                bottom: -20px;
+                            }
+                        </style>
+
+
+                        <legend>To finance a:</legend>
+                        <div class="form-input form-input--VehicleType three-col">
+                            <label class="radio_container">
+                                <input type="radio" id="Car" name="VehicleType" value="Car" required=""
+                                       onclick="autoNext()" aria-required="true">
+                                <span class="checkmark">
+                Car
+              </span>
+                            </label>
+                            <label class="radio_container">
+                                <input type="radio" id="Van" name="VehicleType" value="Van" onclick="autoNext()">
+                                <span class="checkmark">
+                Van
+              </span>
+                            </label>
+                            <label class="radio_container">
+                                <input type="radio" id="Motorbike" name="VehicleType" value="Motorbike"
+                                       onclick="autoNext()">
+                                <span class="checkmark">
+                Motorbike
+              </span>
+                            </label>
+                            <label class="radio_container">
+                                <input type="radio" id="Caravan" name="VehicleType" value="Caravan"
+                                       onclick="autoNext()">
+                                <span class="checkmark">
+                Caravan
+              </span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div id="step1" class="tab">
+                <div class="form-group form-group--radio">
+                    <fieldset>
+                        <legend>Employment</legend>
+                        <p>Whats is your employment status?</p>
+                        <div class="form-input form-input--EmploymentStatus">
+                            <label class="radio_container">
+                                <input type="radio" id="employment_1" name="EmploymentStatus"
+                                       value="Full-Time Employment" required="" onclick="autoNext()"
+                                       aria-required="true">
+                                <span class="checkmark">Full-Time Employment</span>
+                            </label>
+                            <label class="radio_container">
+                                <input type="radio" id="employment_2" name="EmploymentStatus"
+                                       value="Part-Time Employment" required="" onclick="autoNext()">
+                                <span class="checkmark">Part-Time Employment</span>
+                            </label>
+                            <label class="radio_container">
+                                <input type="radio" id="employment_3" name="EmploymentStatus" value="Self-Employed"
+                                       required="" onclick="autoNext()">
+                                <span class="checkmark">Self-Employed</span>
+                            </label>
+                            <label class="radio_container">
+                                <input type="radio" id="employment_4" name="EmploymentStatus" value="Carer" required=""
+                                       onclick="autoNext()">
+                                <span class="checkmark">Carer</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div id="step1-1" class="tab">
+                <div class="form-group">
+                    <label><strong>Employment</strong></label>
+                    <p>Who is your employer? We never contact your employer</p>
+
+                    <div class="form-input">
+                        <div class="dob_container">
+                            <div>
+                                <label for="Employer">Employer</label>
+                                <input type="text" placeholder="Company name here" name="Employer" required=""
+                                       aria-required="true">
+                            </div>
+                            <div>
+                                <label for="JobTitle">Job Title</label>
+                                <input type="text" placeholder="Job title here" name="JobTitle" required=""
+                                       aria-required="true">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="step1-2" class="tab">
+                <div class="form-group">
+                    <label><strong>Employment</strong></label>
+                    <p>How long have you worked there?</p>
+
+                    <div class="form-input">
+                        <div class="dob_container">
+                            <div>
+                                <label for="Employer">Years</label>
+                                <input type="text" placeholder="Enter Years" name="TimeAtEmployerYears"
+                                       inputmode="numeric" pattern="[0-9]*" required="" aria-required="true">
+                            </div>
+                            <div>
+                                <label for="JobTitle">Months</label>
+                                <input type="text" placeholder="Enter Months" name="TimeAtEmployerMonths"
+                                       inputmode="numeric" pattern="[0-9]*" required="" aria-required="true">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="step1-3" class="tab">
+                <div class="form-group">
+                    <label><strong>Employment</strong></label>
+                    <p>What is your total NET monthly income, after tax?</p>
+
+                    <div class="form-input">
+                        <div class="dob_container">
+                            <div>
+                                <input type="text" placeholder="0" name="MonthlyIncome" inputmode="numeric"
+                                       pattern="[0-9]*" required="" aria-required="true">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="step2" class="tab">
+                <div class="form-group">
+                    <label><strong>Date of Birth</strong></label>
+                    <div class="form-input">
+                        <div class="dob_container">
+                            <div>
+                                <label for="DayOfBirth">DD</label>
+
+                                <input type="text" placeholder="06" value="" name="DateOfBirth" inputmode="numeric"
+                                       pattern="[0-9]*" max="31" required="" autocomplete="off" aria-required="true">
+
+                            </div>
+                            <div>
+                                <label for="MonthOfBirth">MM</label>
+
+                                <input type="text" value="" placeholder="04" name="DateOfBirth" inputmode="numeric"
+                                       pattern="[0-9]*" max="12" required="" autocomplete="off" aria-required="true">
+
+                            </div>
+                            <div>
+                                <label for="YearOfBirth">YYYY</label>
+
+                                <input type="text" value="" name="DateOfBirth" placeholder="1984" inputmode="numeric"
+                                       pattern="[0-9]*" min="1920" max="2003" required="" autocomplete="off"
+                                       aria-required="true">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step3" class="tab">
+                <div class="form-group">
+                    <label><strong>Address Details</strong></label>
+                    <label for="postcode"><strong>What is your postcode?</strong></label>
+                    <div class="form-input">
+                        <input type="text" placeholder="Postcode..." name="Postcode" maxlength="8">
+                        <button onclick="onSearch()" type="button">Search</button>
+                    </div>
+                    <div id="postcode_select">
+                        <select id="postcode_selector">
+                            <option selected disabled>Please Select...</option>
+                        </select>
+                    </div>
+                    <label for="TimeAtAddress"><strong>How long have you lived there? (3 years
+                        required)</strong></label>
+                    <div class="form-input">
+                        <div class="dob_container">
+                            <div>
+                                <label for="TimeAtAddress">Years</label>
+                                <input type="text" placeholder="Enter Years" name="TimeAtAddressYears"
+                                       inputmode="numeric" pattern="[0-9]*" required="" aria-required="true">
+                            </div>
+                            <div>
+                                <label for="TimeAtAddress">Months</label>
+                                <input type="text" placeholder="Enter Months" name="TimeAtAddressMonths"
+                                       inputmode="numeric" pattern="[0-9]*" required="" aria-required="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step4" class="tab">
+                <div class="form-group form-group--radio">
+                    <fieldset>
+                        <legend>Almost done</legend>
+                        <p>Let us know who you are</p>
+                        <div class="form-input form-input--Title">
+                            <label class="radio_container">
+                                <input type="radio" id="title_1" name="Title" value="Mr">
+                                <span class="checkmark">Mr</span>
+                            </label>
+                            <label class="radio_container">
+                                <input type="radio" id="title_2" name="Title" value="Mrs">
+                                <span class="checkmark">Mrs</span>
+                            </label>
+                            <label class="radio_container">
+                                <input type="radio" id="title_3" name="Title" value="Miss">
+                                <span class="checkmark">Miss</span>
+                            </label>
+                            <label class="radio_container">
+                                <input type="radio" id="title_4" name="Title" value="Ms">
+                                <span class="checkmark">Ms</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first_name"><strong>First Name</strong></label>
+                        <div class="form-input">
+
+                            <input type="text" placeholder="First Name..." value="" id="Forename" name="Forename"
+                                   title="Full name" required="" aria-required="true">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name"><strong>Last Name</strong></label>
+                        <div class="form-input">
+
+                            <input type="text" placeholder="Last Name..." value="" id="Surname" name="Surname"
+                                   title="Last name" required="" aria-required="true">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><strong>Email Address</strong></label>
+                        <div class="form-input">
+
+                            <input type="text" placeholder="E-mail..." id="Email" name="Email" title="name@name.co.uk"
+                                   required="" aria-required="true">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="step5" class="tab">
+                <div class="form-row">
+                    <p class="pform-title-end">Final Step</p>
+                    <label class="d-block text-center w-100 mb-0 mb-lg-3"
+                           style="width: 100%; text-align: center; margin-bottom: 1rem!important;">Great - we can
+                        definitely help you!</label>
+                    <div class="form-group">
+                        <label><strong>Phone</strong></label>
+                        <div class="form-input">
+
+                            <input type="text" id="Mobile" placeholder="Phone..." name="Mobile" inputmode="numeric"
+                                   pattern="[0][0-9]{10}" maxlength="11" minlength="11" required="required">
+
+                            <input id="sf_GCLID__c" name="GCLID__c" type="hidden" class="w2linput text" value=""
+                                   style="display: none;">
+
+                            <p style="display: table; border-bottom: 1px solid #0534ff; color: #0534ff; margin-top: 10px; margin: 10px auto 0;">
+                                We will send a text to verify your number</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+
+                <input id="quote" type="submit" name="submit" class="w2linput submit" value="Get a quote"
+                       style="display: none;">
+                <button type="button" id="nextBtn" onclick="nextPrev(1)" style="display: none;">Continue</button>
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)" style="display: none;">&lt; Back</button>
+
+            </div>
+
+            <p id="terms" style="display: none;">By submitting this form you agree to be contacted by email, SMS or
+                telephone by our partners list and confirm that you have agreed to our Privacy Policy.</p>
+
+        </form>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    document.getElementById("sf_mobile_phone__c").setAttribute('maxlength', '11');
+    document.getElementById("sf_mobile_phone__c").setAttribute('minlength', '11');
+
+    document.getElementById("sf_mobile_phone__c").setAttribute('inputmode', 'numeric');
+
+</script>
+
+<script type="text/javascript">
+    function onSearch() {
+        const code = document.getElementsByName("Postcode")[0].value
+        const select = document.querySelector("#postcode_select")
+        const selector = document.querySelector("#postcode_selector")
+        fetch(`https://api.firstclasspostcodes.com/data/postcode?search=${code}`, {
+            headers: {
+                "X-Api-Key": "eqZvAN6QR79c15K4gPiAV50juEL5vvPX9ObtWpFY"
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                var i = 0
+                while (i <= data.numbers.length) {
+                    const option = document.createElement("option")
+                    option.text = `${data.numbers[i].street} ${data.numbers[i].number}`
+                    option.value = `${data.numbers[i].street} ${data.numbers[i].number} `
+                    selector.add(option)
+                    i++;
+                }
+            })
+            .catch(err => console.log(err))
+        document.querySelector("#postcode_select").style.display = "block"
+    }
+
+    function onSubmit() {
+        data.push({
+            name: document.getElementsByName("name")[0].value,
+            address: document.getElementsByName("address")[0].value
+        })
+        console.log(data)
+    }
+</script>
+
+
+<style type="text/css">
+    #postcode_selector {
+        margin-top: 2px;
+        color: #444;
+        background-color: white;
+        border: 1px solid gray;
+    }
+
+    @media only screen and (min-width: 767px) {
+        #sf_form_salesforce_w2l_lead_3:before {
+            content: "";
+            background-image: url("https://carplus.co.uk/wp-content/themes/carplus-3.7/images/form/form-sticker-best-price.png");
+            background-repeat: no-repeat;
+            display: block;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            border: 1px solid #4a92df;
+            background-color: #FFF;
+            position: absolute;
+            top: -50px;
+            right: -40px;
+            left: auto;
+            background-size: 120px 120px;
+            width: 120px;
+            height: 120px;
+        }
+    }
+
+    .pform {
+        margin-top: 60px;
+        margin-bottom: 0px;
+    }
+
+    .pform fieldset {
+        border: 0;
+    }
+
+    .pt-5, .py-5 {
+        padding-top: 3rem !important;
+    }
+
+    .pform h2.text-center {
+        margin-bottom: 0;
+        font-size: 2rem;
+        text-align: center;
+        color: #000;
+    }
+
+    .pform p.pform-title {
+        margin-top: 0;
+        margin-bottom: 30px;
+        padding-top: 30px;
+        display: block;
+        text-align: center;
+    }
+
+    .pform p.pform-title-end {
+        width: 100%;
+        text-align: center;
+        color: #05458a;
+        color: #65cf78 !important;
+        font-size: 18px !important;
+        font-weight: bold;
+        margin: 0 0 0.5rem;
+    }
+
+    .pform {
+        /*min-height: 455px;*/
+        /*background-color: #0034ff;*/
+    }
+
+    .pform form {
+        font-family: inherit;
+        padding: 0 0 20px;
+        border-radius: 5px;
+        max-width: 700px;
+        color: #000;
+        position: relative;
+        margin: auto auto;
+    }
+
+    .pform .form-group {
+        position: relative;
+    }
+
+    .pform .form-group > label {
+        display: block;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1;
+    }
+
+    .pform .form-group > label::after {
+        content: "*";
+        font-size: 16px;
+        color: #ffffff;
+        line-height: 1;
+        vertical-align: top;
+        margin-left: 2px;
+        position: absolute;
+    }
+
+    .pform .form-group span.error {
+        color: #f15252;
+        font-size: 14px;
+        line-height: 1;
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        background: #fff;
+    }
+
+    .pform .form-group--radio .form-input {
+        margin-top: 10px;
+    }
+
+    .pform .form-group--radio .form-input span.error {
+        font-size: 12px;
+        position: absolute;
+        bottom: -18px;
+        width: 100%;
+        right: 0;
+    }
+
+    .pform .form-input {
+        position: relative;
+    }
+
+    .pform .form-input input {
+        border: 2px solid #0034ff;
+        border-radius: 4px;
+    }
+
+    .pform .form-input input.error {
+        animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+        border-color: #f15252;
+        background-color: #ffe4e4;
+    }
+
+    .pform .form-actions {
+        max-width: 377px;
+        padding: 0 24px;
+        margin: 15px auto 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .pform .select-css {
+        display: block;
+        font-size: 16px;
+        font-family: sans-serif;
+        font-weight: 700;
+        color: #444;
+        line-height: 1.3;
+        padding: .6em 1.4em .5em .8em;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        border: 1px solid #aaa;
+        /*box-shadow: 0 1px 0 1px rgba(0,0,0,.04);*/
+        border-radius: .5em;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='292.4' height='292.4'%3E%3Cpath fill='%23042a2d' d='M287 69.4a17.6 17.6 0 0 0-13-5.4H18.4c-5 0-9.3 1.8-12.9 5.4A17.6 17.6 0 0 0 0 82.2c0 5 1.8 9.3 5.4 12.9l128 127.9c3.6 3.6 7.8 5.4 12.8 5.4s9.2-1.8 12.8-5.4L287 95c3.5-3.5 5.4-7.8 5.4-12.8 0-5-1.9-9.2-5.5-12.8z'/%3E%3C/svg%3E"), linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+        background-repeat: no-repeat, repeat;
+        background-position: right .7em top 50%, 0 0;
+        background-size: .65em auto, 100%;
+    }
+
+    .pform .select-css::-ms-expand {
+        display: none;
+    }
+
+    .pform .select-css:hover {
+        border-color: #888;
+    }
+
+    .pform .select-css:focus {
+        border-color: #aaa;
+        box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+        box-shadow: 0 0 0 3px -moz-mac-focusring;
+        color: #222;
+        outline: none;
+    }
+
+    .pform .select-css option {
+        font-weight: normal;
+    }
+
+    /* Radio Button */
+    .pform .radio_container {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        font-size: 16px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .radio_container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        left: 0;
+    }
+
+    .pform .radio_container .checkmark {
+        padding: 8px 10px;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 0 8px;
+        display: block;
+        max-width: 100%;
+        border: 2px solid #0034ff;
+        border-radius: 10px;
+        color: #3b7cc4;
+        background: #FFF;
+        transition: background-color 0.2s, border-color 0.2s;
+        text-align: center;
+    }
+
+    .pform .radio_container input.error ~ .checkmark {
+        background-color: #3b7cc4;
+        color: #FFF;
+        border-color: #ff8181;
+    }
+
+    .pform .radio_container:hover input ~ .checkmark,
+    .pform .radio_container input:checked ~ .checkmark {
+        /*background-color: #ff7f34;*/
+        background-color: #00a88f;
+        color: #FFF;
+    }
+
+    /* DOB - Container */
+    .pform .dob_container {
+        display: flex;
+    }
+
+    .pform .dob_container div {
+        flex-grow: 1;
+    }
+
+    .pform .dob_container div + div {
+        margin-left: 5%;
+        /*position: relative;*/
+    }
+
+    .pform .dob_container label {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        display: block;
+        color: #000;
+    }
+
+    .pform label {
+        color: #000;
+    }
+
+    .pform input {
+        padding: 8px 10px;
+        width: 100%;
+        font-size: 16px;
+        font-family: inherit;
+        border: 2px solid #aaaaaa;
+    }
+
+    .pform input.invalid {
+        background-color: #ffdddd;
+    }
+
+    .pform .tab {
+        display: none;
+        padding: 0 20px;
+    }
+
+    body.phi-template .top-title .wrapper .pform p#terms {
+        display: none;
+        font-size: 12px;
+        opacity: 0.6;
+        line-height: 1.2;
+        font-weight: 300;
+        display: block;
+        width: 90%;
+        height: 50px;
+        margin: 0 auto;
+    }
+
+    #indicator {
+        background-color: #a5d0ff;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0 auto 20px;
+        border-radius: 25px;
+        overflow: hidden;
+        width: calc(100% - 30px);
+    }
+
+    #indicator {
+        display: block;
+        height: 30px;
+        position: relative;
+    }
+
+    #indicator span {
+        width: 0;
+        background-color: #00a88f;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transition: width 0.25s;
+    }
+
+    #indicator span {
+        color: #ffffff;
+        text-align: center;
+        font-size: 14px;
+        line-height: 32px;
+    }
+
+    .pform .step {
+        height: 10px;
+        max-width: 100%;
+        flex: 1 1 100%;
+        border: none;
+        display: inline-block;
+    }
+
+    .pform .step.visited {
+        background-color: #ffffff;
+    }
+
+    .pform #quote,
+    .pform button {
+        /*background-color: #ff7f34;*/
+        background-color: #0034ff;
+        /*	color: #ffffff;
+          border: none;
+          padding: 8px 20px;
+          font-size: 16px;
+          font-family: inherit;
+          cursor: pointer;
+          border-radius: 3px;
+          transition: all .25s ease-in-out;
+          width: 100%;*/
+        margin-top: 20px;
+        position: relative;
+        display: inline-block;
+        height: 60px;
+        line-height: 45px;
+        max-width: 330px;
+        min-width: 330px;
+        font-size: 18px;
+        font-weight: bold;
+        fill: #FFFFFF;
+        color: #FFFFFF;
+        /*background-color: #0034ff;*/
+        box-shadow: none;
+        padding: 0;
+        text-decoration: none;
+        border-radius: 100px;
+        border: 0;
+
+
+    }
+
+    .pform #quote:hover,
+    .pform button:hover {
+        opacity: 1;
+    }
+
+
+    .pform #quote:focus,
+    .pform #quote:active,
+    .pform button:active,
+    .pform button:focus {
+        border: 0 !important;
+    }
+
+    .pform #prevBtn {
+        font-size: 16px;
+        margin-right: 5px;
+        margin-top: 0;
+        background-color: transparent;
+        color: #000;
+    }
+
+    .pform #prevBtn:hover {
+        outline: none;
+    }
+
+    /** Input Specific*/
+    .pform .form-input .radio_container img {
+        display: none;
+    }
+
+    #loading {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        z-index: 999;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    #loading p {
+        background: rgb(29, 210, 109);
+        padding: 14px 18px;
+        font-size: 21px;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .ani-flash {
+        animation: flash 1.5s linear infinite;
+    }
+
+    @keyframes flash {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes shake {
+        10%, 90% {
+            transform: translate3d(-1px, 0, 0);
+        }
+
+        20%, 80% {
+            transform: translate3d(2px, 0, 0);
+        }
+
+        30%, 50%, 70% {
+            transform: translate3d(-4px, 0, 0);
+        }
+
+        40%, 60% {
+            transform: translate3d(4px, 0, 0);
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        body {
+            min-width: 320px;
+        }
+
+        .pform p.pform-title {
+            padding: 15px 0;
+            margin: 0 0 1rem;
+            border-radius: 4px 4px 0 0;
+            background: #3c7cc4;
+        }
+
+        .pform .tab {
+            /*height: 230px;*/
+        }
+
+        .pform #step6.tab {
+            /*height: 180px;*/
+        }
+
+        .pform .form-group > label {
+            margin-bottom: 0;
+        }
+
+        .pform .form-group--radio > label {
+            max-width: 240px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .pform .form-group span.error {
+            display: none !important;
+        }
+
+        .pform .form-row .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .pform #step3 .form-group {
+            margin-bottom: 20px;
+        }
+
+        .pform .form-group > label {
+            margin-bottom: 10px;
+        }
+
+        .form-row .pform .form-input {
+            flex: 0 0 100%;
+            width: 100%;
+        }
+
+        .pform .form-actions {
+            padding: 0 24px 10px;
+            /*height: 85px;*/
+            margin-top: 0;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .pform form label {
+            display: inline-block;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .pform form {
+            /*height: 455px;*/
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .pform #quote,
+        .pform button {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+
+        .pform .tab {
+            /*height: 220px;*/
+            padding: 0 40px;
+        }
+
+        .pform #step6.tab {
+            height: 180px;
+        }
+
+        .pform .form-input input {
+            border-width: 4px;
+        }
+
+        .pform .form-group > label {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .pform .form-group-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pform .form-group-flex > label {
+            flex: 0 0 40%;
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+
+        .pform .dob_container {
+            margin-bottom: 1.5rem;
+        }
+
+        .pform .form-group--radio span.error {
+            bottom: -10px;
+        }
+
+        .pform .form-input .radio_container,
+        .pform .form-input .checkbox_container {
+            display: inline-block;
+        }
+
+        .pform .radio_container .checkmark {
+            padding: 15px;
+            font-size: 18px;
+            border-width: 4px;
+        }
+
+        /** Input Specific*/
+        .pform .form-group--radio .form-input {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        /** Input Specific*/
+        .pform .form-input .radio_container img {
+            -o-user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+            margin: 0 auto 5px auto;
+            max-width: 50px;
+            display: block;
+        }
+
+        .pform .form-input .radio_container:hover img,
+        .pform .form-input .radio_container img.hover-image,
+        .pform .radio_container input:checked ~ .checkmark img,
+        .pform .form-input .radio_container input.error ~ .checkmark img {
+            display: none;
+        }
+
+        .pform .form-input .radio_container:hover img.hover-image,
+        .pform .radio_container input:checked ~ .checkmark img.hover-image,
+        .pform .form-input .radio_container input.error ~ .checkmark img.hover-image {
+            display: block;
+        }
+
+        .pform .form-input .radio_container {
+            width: calc(50% - 10px);
+        }
+
+        .pform #step4 .form-input .radio_container,
+        .pform .form-input.three-col .radio_container {
+            width: calc(25% - 10px);
+        }
+
+        .pform .form-row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: calc(100% + 20px);
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+
+        .pform .form-row .form-group {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 100%;
+            flex: 1;
+            margin-bottom: 32px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        #indicator {
+            max-width: 420px;
+        }
+
+    }
+
+    .pform p#terms {
+        display: none;
+        font-size: 12px;
+        opacity: 0.6;
+        line-height: 1.2;
+        font-weight: 300;
+        display: block;
+        width: 90%;
+        height: 50px;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+
+<!-- <form id="registerForm" action="https://stagingcplus.wpengine.com/wp-content/themes/carplus-3.7/page_API_POST.php" method="POST">
+
+  <input type=hidden name="retURL" value="https://carplus.co.uk/quote/success/">
+
+  <input type="text" placeholder="First Name..." name="Forename" title="Last name" required="" aria-required="true">
+  <input type="text" placeholder="Last Name..." name="Surname" title="Last name" required="" aria-required="true">
+
+  <input id="quote" type="submit" name="submit" value="Get a quote">
+
+</form> -->
+
+<script src="https://appform.autoconvert.co.uk/assets/js/iframe/carplus/parent-comms.js" async></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://carplus.co.uk/wp-content/themes/carplus-3.7/js/form/jquery.validate.min.js"></script>
+<!-- <script src="https://carplus.co.uk/wp-content/themes/carplus-3.7/js/form/jqueryvalidation_min.js"></script> -->
+<script src="https://carplus.co.uk/wp-content/themes/carplus-3.7/js/form/slick.min.js"></script>
+<script src="https://carplus.co.uk/wp-content/themes/carplus-3.7/js/form/main.js"></script>
+<script src="https://carplus.co.uk/wp-content/themes/carplus-3.7/js/form/utm_form-1.2.0.min.js"></script>
+</body>
+</html>
